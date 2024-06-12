@@ -1,9 +1,9 @@
 def alterar_elemento(lista):
-    armazenador=input("\nDigite a tarefa a ser alterada\n")
+    armazenador=input("\nDigite o item a ser alterado\n")
     try:
         armazenador=lista.index(armazenador)
-        lista[armazenador]=input("Digite a tarefa com a alteracao\n")
-        print("Tarefa alterada!")
+        lista[armazenador]=input("Digite o item com a alteração\n")
+        print("Alterado!")
     except:
-        print("Tarefa inexistente")
+        print("Inexistente")
     return lista

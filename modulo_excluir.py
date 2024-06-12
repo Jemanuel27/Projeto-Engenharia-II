@@ -1,9 +1,9 @@
 def excluir_elemento(lista):
-    armazenador=input("\nDigite a tarefa a ser excluida\n")
+    armazenador=input("\nDigite o item a ser excluido\n")
     try:
         armazenador=lista.index(armazenador)
         del(lista[armazenador])
-        print("Tarefa excluida!")
+        print("Excluído!")
     except:
-        print("Tarefa inexistente")
+        print("Inexistente")
     return lista

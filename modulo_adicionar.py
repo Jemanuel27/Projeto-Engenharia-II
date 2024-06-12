@@ -1,5 +1,5 @@
-
 def adicionar_elemento(lista):
-    lista.append(input("Digite a tarefa a ser adicionada\n"))
-    print("Tarefa adicionada!")
+    lista.append(input("\nDigite o item a ser adicionado:\n"))
+    print("Adicionado!")
     return lista
+    
