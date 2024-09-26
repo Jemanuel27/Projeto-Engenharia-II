@@ -1,48 +1,116 @@
-import modulo_adicionar, modulo_listar, modulo_alterar, modulo_excluir, modulo_bd, sys
-try:
-    indicador_funcao=1
-    database=modulo_bd.iniciar_bd()
-    senhas=modulo_bd.senhas()
-    if(modulo_bd.verificar_senha(senhas)=="ok"):
-        print("Bem vindo a BorderSystems - Projeto Dahl")
-        while(indicador_funcao!=0):
-            indicador_funcao=int(input("\nDigite 1 para tarefas\nDigite 2 para senhas\nDigite 0 para sair\n"))
-            if(indicador_funcao==1):
-                while(indicador_funcao!=5):
-                    indicador_funcao=int(input("\nDigite 1 para adicionar um item\nDigite 2 para listar itens cadastrados\nDigite 3 para editar algum item\nDigite 4 para excluir um item\nDigite 5 para voltar\n"))        
-                    if(indicador_funcao==1):
-                        database=modulo_adicionar.adicionar_elemento(database)
-                    elif(indicador_funcao==2):
-                        modulo_listar.listar_elementos(database)
-                    elif(indicador_funcao==3):
-                        database=modulo_alterar.alterar_elemento(database)
-                    elif(indicador_funcao==4):
-                        database=modulo_excluir.excluir_elemento(database)
-                    elif(indicador_funcao!=1 and indicador_funcao!=2 and indicador_funcao!=3 and indicador_funcao!=4 and indicador_funcao!=5):
-                        print("Digite uma operacao valida!")
-            elif(indicador_funcao==2):
-                while(indicador_funcao!=5):
-                    indicador_funcao=int(input("\nDigite 1 para adicionar uma senha\nDigite 2 para listar senhas cadastradas\nDigite 3 para editar alguma senha\nDigite 4 para excluir uma senha\nDigite 5 para voltar\n"))
-                    if(indicador_funcao==1):
-                        senhas=modulo_adicionar.adicionar_elemento(senhas)
-                    elif(indicador_funcao==2):
-                        modulo_listar.listar_elementos(senhas)
-                    elif(indicador_funcao==3):
-                        senhas=modulo_alterar.alterar_elemento(senhas)
-                    elif(indicador_funcao==4):
-                        senhas=modulo_excluir.excluir_elemento(senhas)
-                    elif(indicador_funcao!=1 and indicador_funcao!=2 and indicador_funcao!=3 and indicador_funcao!=4 and indicador_funcao!=5):
-                        print("Digite uma operacao valida!")
-            elif(indicador_funcao!=1 and indicador_funcao!=2 and indicador_funcao!=0):
-                print("Digite uma operacao valida!")
-            else:
-                print("Até a próxima!")
+import tkinter as tk
+from tkinter import messagebox
+import os
+
+# Importar as funções dos módulos separados
+from adicionar import adicionar_item
+from listar import listar_itens
+from alterar import alterar_item
+from remover import remover_item
+
+# Lista para armazenar os itens (simulação de banco de dados)
+itens = []
+
+# Definindo o tamanho padrão para todas as janelas
+tamanho_padrao = "600x400"  # Largura x Altura
+redimensionavel = (False, False)  # Define se pode redimensionar (largura, altura)
+
+# Função para centralizar uma janela
+def centralizar_janela(janela, largura, altura):
+    largura_tela = janela.winfo_screenwidth()
+    altura_tela = janela.winfo_screenheight()
+    x = (largura_tela // 2) - (largura // 2)
+    y = (altura_tela // 2) - (altura // 2)
+    janela.geometry(f"{largura}x{altura}+{x}+{y}")
+
+# Função para atualizar o conteúdo da área central dinamicamente
+def atualizar_conteudo(funcao):
+    for widget in frame_conteudo.winfo_children():
+        widget.destroy()
+    funcao(frame_conteudo, itens)
+
+# Função para exibir a tela CRUD após login
+def mostrar_tela_crud():
+    global frame_conteudo
+
+    tela_crud = tk.Toplevel()
+    tela_crud.title("CRUD")
+    tela_crud.geometry(tamanho_padrao)
+    tela_crud.resizable(*redimensionavel)
+    centralizar_janela(tela_crud, 600, 400)  # Centralizar janela CRUD
+
+    frame_botoes = tk.Frame(tela_crud)
+    frame_botoes.pack(side="left", padx=10, pady=10)
+
+    # Botões para as operações
+    tk.Button(frame_botoes, text="Adicionar", command=lambda: atualizar_conteudo(adicionar_item)).pack(pady=5)
+    tk.Button(frame_botoes, text="Listar", command=lambda: atualizar_conteudo(listar_itens)).pack(pady=5)
+    tk.Button(frame_botoes, text="Alterar", command=lambda: atualizar_conteudo(alterar_item)).pack(pady=5)
+    tk.Button(frame_botoes, text="Remover", command=lambda: atualizar_conteudo(remover_item)).pack(pady=5)
+
+    frame_conteudo = tk.Frame(tela_crud)
+    frame_conteudo.pack(side="right", padx=10, pady=10)
+
+# Função para verificar login
+def verificar_login():
+    senha_digitada = entrada_senha_login.get()
+    if os.path.exists("senha.txt"):
+        with open("senha.txt", "r") as arquivo:
+            senha_salva = arquivo.read()
+        if senha_digitada == senha_salva:
+            messagebox.showinfo("Sucesso", "Login realizado com sucesso!")
+            tela_login.withdraw()
+            mostrar_tela_crud()
+        else:
+            messagebox.showerror("Erro", "Senha incorreta!")
     else:
-        print("Senha inválida, acesso negado")
-    modulo_bd.encerrar_bd(database)
-    modulo_bd.senhas_encerrar(senhas)
-except:
-    print("Operação inválida, encerrando sistema!")
-    modulo_bd.encerrar_bd(database)
-    modulo_bd.senhas_encerrar(senhas)
-    
+        messagebox.showerror("Erro", "Nenhuma senha criada! Por favor, crie uma senha primeiro.")
+
+# Função para criar a senha
+def criar_senha():
+    senha = entrada_senha.get()
+    confirmar_senha = entrada_confirmar_senha.get()
+    if senha == confirmar_senha:
+        with open("senha.txt", "w") as arquivo:
+            arquivo.write(senha)
+        messagebox.showinfo("Sucesso", "Senha criada com sucesso!")
+        tela_criar_senha.destroy()
+        mostrar_tela_login()
+    else:
+        messagebox.showerror("Erro", "As senhas não coincidem!")
+
+# Função para mostrar a tela de criação de senha
+def mostrar_tela_criar_senha():
+    global tela_criar_senha, entrada_senha, entrada_confirmar_senha
+    tela_criar_senha = tk.Toplevel(tela_login)
+    tela_criar_senha.title("Criar Senha")
+    tela_criar_senha.geometry(tamanho_padrao)
+    tela_criar_senha.resizable(*redimensionavel)
+    centralizar_janela(tela_criar_senha, 600, 400)  # Centralizar janela de criação de senha
+
+    tk.Label(tela_criar_senha, text="Digite a nova senha:").pack(pady=5)
+    entrada_senha = tk.Entry(tela_criar_senha, show="*")
+    entrada_senha.pack(pady=5)
+    tk.Label(tela_criar_senha, text="Confirme a senha:").pack(pady=5)
+    entrada_confirmar_senha = tk.Entry(tela_criar_senha, show="*")
+    entrada_confirmar_senha.pack(pady=5)
+    tk.Button(tela_criar_senha, text="Criar Senha", command=criar_senha).pack(pady=20)
+
+# Função para mostrar a tela de login
+def mostrar_tela_login():
+    global tela_login, entrada_senha_login
+    tela_login = tk.Tk()
+    tela_login.title("Login")
+    tela_login.geometry(tamanho_padrao)
+    tela_login.resizable(*redimensionavel)
+    centralizar_janela(tela_login, 600, 400)  # Centralizar janela de login
+
+    tk.Label(tela_login, text="Digite sua senha:").pack(pady=5)
+    entrada_senha_login = tk.Entry(tela_login, show="*")
+    entrada_senha_login.pack(pady=5)
+    tk.Button(tela_login, text="Login", command=verificar_login).pack(pady=10)
+    tk.Button(tela_login, text="Criar Nova Senha", command=mostrar_tela_criar_senha).pack(pady=5)
+    tela_login.mainloop()
+
+# Iniciar o programa mostrando a tela de login
+mostrar_tela_login()
