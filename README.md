@@ -53,8 +53,8 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
 <p>Como clonar o projeto:</p>
 
 <ol type="1">
-  <li>Abra o terminal.</li>
-  <li>Digite o seguinte comando:</li>
+  <li></li>
+  <li></li>
 </ol>
 
 
@@ -63,16 +63,14 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
   <li></li>
 </ol>
 
-```bash
-cd nome-do-projeto
+```
 ```
 
 <ol start="4" type="1">
   <li></li>
 </ol>
 
-```bash
-docker compose up
+```
 ```
 
 <p></p>
@@ -87,7 +85,7 @@ docker compose up
 }
 ```
 
-<h2 id="difficulties">❗ Dificuldades Conhecidas</h2>
+<h2 id="difficulties">❗ Dificuldades Conhecidas </h2>
 <ul>
   <li>POUCA DOCUMENTAÇÃO SOBRE A FERRAMENTA tkinter.</li>
   
