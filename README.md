@@ -103,18 +103,18 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
       <a href="https://github.com/Jemanuel27">Perfil no GitHub</a>
     </td>
     <td align="center">
-      <a href="">
-        <img src="" width="120" alt="" style="border-radius: 50%;">
+      <a href="https://github.com/JuniorQueiroz99">
+        <img src="https://avatars.githubusercontent.com/u/58738268?v=4" width="120" alt="Junior Queiroz" style="border-radius: 50%;">
       </a>
-      <p><strong></strong></p>
-      <a href="">Perfil no GitHub</a>
+      <p><strong>Junior Queiroz</strong></p>
+      <a href="https://github.com/JuniorQueiroz99">Perfil no GitHub</a>
     </td>
     <td align="center">
-      <a href="">
-        <img src="" width="120" alt="" style="border-radius: 50%;">
+      <a href="https://github.com/CristianoSilva22">
+        <img src="https://avatars.githubusercontent.com/u/114546598?v=4" width="120" alt="Cristiano Silva" style="border-radius: 50%;">
       </a>
-      <p><strong></strong></p>
-      <a href="">Perfil no GitHub</a>
+      <p><strong>Critiano Silva</strong></p>
+      <a href="https://github.com/CristianoSilva22">Perfil no GitHub</a>
     </td>
     <td align="center">
       <a href="https://github.com/FrancinildoAlves">
