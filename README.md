@@ -47,15 +47,10 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
 
 <h3>Pré-requisitos</h3>
 
-<ul>
-
-
 <ol type="1">
   <li>Clone o repositorio do Github na sua maquina<li>
 
 </ol>
-
-
 
 ```bash 
 git clone https://github.com/Jemanuel27/Projeto-Engenharia-II.git
@@ -72,16 +67,12 @@ git clone https://github.com/Jemanuel27/Projeto-Engenharia-II.git
 <p>5º Pressione enter e o sistema será executando<p>
 
 
-```json
-{
-    
-}
-```
+json
 
 <h2 id="difficulties">❗ Dificuldades Conhecidas </h2>
 <ul>
-  <li>POUCA DOCUMENTAÇÃO SOBRE A FERRAMENTA tkinter.</li>
-  <li><li>
+  <li>Pouca documentação sobre a ferramenta tkinter  tkinter.</li>
+  <li>Organização da equipe fator: Tempo <li>
 </ul>
 
 <h2 id="contributors">🤝 Colaboradores</h2>
