@@ -11,11 +11,11 @@ def adicionar_item(frame, itens):
 
     # Adicionar espaçamento nas labels e campos de entrada com estilos
     tk.Label(frame, text="Nome do Item:", **label_style).pack(pady=10, padx=20, anchor='w')
-    nome_entry = tk.Entry(frame, font=("Arial", 12), bg="#f0f0f0", bd=2, relief="solid")
+    nome_entry = tk.Entry(frame, font=("Arial", 12), bg="#f0f0f0")
     nome_entry.pack(pady=5, padx=20, fill='x')
 
     tk.Label(frame, text="Quantidade:", **label_style).pack(pady=10, padx=20, anchor='w')
-    quantidade_entry = tk.Entry(frame, font=("Arial", 12), bg="#f0f0f0", bd=2, relief="solid")
+    quantidade_entry = tk.Entry(frame, font=("Arial", 12), bg="#f0f0f0")
     quantidade_entry.pack(pady=5, padx=20, fill='x')
 
     # Função de adicionar o item à lista
@@ -36,15 +36,16 @@ def adicionar_item(frame, itens):
     # Estilo do botão
     button_style = {
         "font": ("Arial", 12, "bold"),
-        "bg": "#4CAF50",  # Cor de fundo verde
+        "bg": "#063970",  # Cor de fundo verde
         "fg": "white",    # Cor da fonte
-        "activebackground": "#45a049",  # Cor ao clicar
-        "bd": 0,          # Borda
-        "relief": "flat"  # Estilo de relevo
+        "width": 20,
+        "height": 2,      
+        "bd": 0,
+        "relief": "flat"    
     }
 
     # Botão de Adicionar com estilo
-    tk.Button(frame, text="Adicionar", command=adicionar, **button_style).pack(pady=20, padx=20)
+    tk.Button(frame, text="Adicionar", command=adicionar, **button_style).pack(pady=35, padx=0)
 
     # Adicionar padding ao frame para espaçamento interno
     frame.pack_propagate(False)
