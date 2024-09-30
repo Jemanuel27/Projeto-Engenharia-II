@@ -29,9 +29,8 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
   <li>Inserir produtos.</li>
   <li>Remove produtos.</li>
   <li>Alterar produtos.</li>
-  <li>Listagem de produtos.</li>
-  <li>Gerar Relatorios.<li>
-</ul>
+  <li>Listagem de produtos.</li>  
+  </ul>
 
 <h2 id="technologies">⚙️Tecnologias Utilizadas</h2>
 <h3>Back-end</h3>
