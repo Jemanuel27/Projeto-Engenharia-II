@@ -37,10 +37,7 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
 <h3>Back-end</h3>
 <ul>
   <li>Python</li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  
 </ul>
 
 <h2 id="inicio">🚀 Começando</h2>
@@ -49,8 +46,6 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
 
 <ol type="1">
   <li>Clone o repositorio do Github na sua maquina<li>
-
-</ol>
 
 ```bash 
 git clone https://github.com/Jemanuel27/Projeto-Engenharia-II.git
@@ -67,7 +62,6 @@ git clone https://github.com/Jemanuel27/Projeto-Engenharia-II.git
 <p>5º Pressione enter e o sistema será executando<p>
 
 
-json
 
 <h2 id="difficulties">❗ Dificuldades Conhecidas </h2>
 <ul>
