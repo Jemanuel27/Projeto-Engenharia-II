@@ -50,7 +50,6 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
 <ul>
 
 <h3></h3>
-<p></p>
 
 <ol type="1">
   <li>Clone o repositorio do Github na sua maquina<li>
