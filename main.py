@@ -12,7 +12,7 @@ from remover import remover_item
 itens = []
 
 # Definindo o tamanho padrão para todas as janelas
-tamanho_padrao = "600x400"  # Largura x Altura
+tamanho_padrao = "800x600"  # Largura x Altura
 redimensionavel = (False, False)  # Define se pode redimensionar (largura, altura)
 
 # Função para centralizar uma janela
@@ -37,18 +37,25 @@ def mostrar_tela_crud():
     tela_crud.title("CRUD")
     tela_crud.geometry(tamanho_padrao)
     tela_crud.resizable(*redimensionavel)
-    centralizar_janela(tela_crud, 600, 400)  # Centralizar janela CRUD
+    centralizar_janela(tela_crud, 1024, 768)  
+    
+    # Centralizar janela CRUD
+    frame_botoes = tk.Frame(tela_crud, bg="lightgray", width=400, height=600)  # Aumentar tamanho da caixa cinza
+    frame_botoes.pack(side="left", padx=50, pady=50)
 
-    frame_botoes = tk.Frame(tela_crud)
-    frame_botoes.pack(side="left", padx=10, pady=10)
+    # Impedir que o frame ajuste automaticamente seu tamanho
+    frame_botoes.pack_propagate(False)
 
-    # Botões para as operações
-    tk.Button(frame_botoes, text="Adicionar", command=lambda: atualizar_conteudo(adicionar_item)).pack(pady=5)
-    tk.Button(frame_botoes, text="Listar", command=lambda: atualizar_conteudo(listar_itens)).pack(pady=5)
-    tk.Button(frame_botoes, text="Alterar", command=lambda: atualizar_conteudo(alterar_item)).pack(pady=5)
-    tk.Button(frame_botoes, text="Remover", command=lambda: atualizar_conteudo(remover_item)).pack(pady=5)
+    # Estilização dos botões (remover bordas)
+    estilo_botao = {"font": ("Verdana", 12), "bg": "#063970", "fg": "white", "width": 25, "height": 2, "bd": 0, "relief": "flat"}
 
-    frame_conteudo = tk.Frame(tela_crud)
+    # Centralizar os botões
+    tk.Button(frame_botoes, text="Adicionar", command=lambda: atualizar_conteudo(adicionar_item), **estilo_botao).pack(pady=10, anchor="center")
+    tk.Button(frame_botoes, text="Listar", command=lambda: atualizar_conteudo(listar_itens), **estilo_botao).pack(pady=10, anchor="center")
+    tk.Button(frame_botoes, text="Alterar", command=lambda: atualizar_conteudo(alterar_item), **estilo_botao).pack(pady=10, anchor="center")
+    tk.Button(frame_botoes, text="Remover", command=lambda: atualizar_conteudo(remover_item), **estilo_botao).pack(pady=10, anchor="center")
+
+    frame_conteudo = tk.Frame(tela_crud, bg="white")
     frame_conteudo.pack(side="right", padx=10, pady=10)
 
 # Função para verificar login
@@ -88,13 +95,17 @@ def mostrar_tela_criar_senha():
     tela_criar_senha.resizable(*redimensionavel)
     centralizar_janela(tela_criar_senha, 600, 400)  # Centralizar janela de criação de senha
 
-    tk.Label(tela_criar_senha, text="Digite a nova senha:").pack(pady=5)
-    entrada_senha = tk.Entry(tela_criar_senha, show="*")
+    # Estilização de labels e entradas
+    estilo_label = {"font": ("Arial", 12), "bg": "lightblue"}
+    estilo_entrada = {"font": ("Arial", 12), "width": 25, "show": "*"}
+
+    tk.Label(tela_criar_senha, text="Digite a nova senha:", **estilo_label).pack(pady=5)
+    entrada_senha = tk.Entry(tela_criar_senha, **estilo_entrada)
     entrada_senha.pack(pady=5)
-    tk.Label(tela_criar_senha, text="Confirme a senha:").pack(pady=5)
-    entrada_confirmar_senha = tk.Entry(tela_criar_senha, show="*")
+    tk.Label(tela_criar_senha, text="Confirme a senha:", **estilo_label).pack(pady=5)
+    entrada_confirmar_senha = tk.Entry(tela_criar_senha, **estilo_entrada)
     entrada_confirmar_senha.pack(pady=5)
-    tk.Button(tela_criar_senha, text="Criar Senha", command=criar_senha).pack(pady=20)
+    tk.Button(tela_criar_senha, text="Criar Senha", command=criar_senha, font=("Arial", 12), bg="#4CAF50", fg="white", bd=0, relief="flat").pack(pady=20)
 
 # Função para mostrar a tela de login
 def mostrar_tela_login():
@@ -105,11 +116,16 @@ def mostrar_tela_login():
     tela_login.resizable(*redimensionavel)
     centralizar_janela(tela_login, 600, 400)  # Centralizar janela de login
 
-    tk.Label(tela_login, text="Digite sua senha:").pack(pady=5)
-    entrada_senha_login = tk.Entry(tela_login, show="*")
+    # Estilização de labels e botões de login
+    estilo_label = {"font": ("Arial", 12)}
+    estilo_entrada = {"font": ("Arial", 12), "width": 25}
+    estilo_botao = {"font": ("Verdana", 12), "bg": "#4CAF50", "fg": "white", "width": 15, "height": 2, "bd": 0, "relief": "flat"}
+
+    tk.Label(tela_login, text="Digite sua Senha:", **estilo_label).pack(pady=10)
+    entrada_senha_login = tk.Entry(tela_login, **estilo_entrada, show="*")
     entrada_senha_login.pack(pady=5)
-    tk.Button(tela_login, text="Login", command=verificar_login).pack(pady=10)
-    tk.Button(tela_login, text="Criar Nova Senha", command=mostrar_tela_criar_senha).pack(pady=5)
+    tk.Button(tela_login, text="Login", command=verificar_login, **estilo_botao).pack(pady=10)
+    tk.Button(tela_login, text="Criar Nova Senha", command=mostrar_tela_criar_senha, **estilo_botao).pack(pady=5)
     tela_login.mainloop()
 
 # Iniciar o programa mostrando a tela de login

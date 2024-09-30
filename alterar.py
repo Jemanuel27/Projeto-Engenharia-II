@@ -1,24 +1,26 @@
 import tkinter as tk
 from tkinter import messagebox
 
-def alterar_item(frame_conteudo, itens):
-    tk.Label(frame_conteudo, text="Alterar Item:").pack(pady=5)
-    tk.Label(frame_conteudo, text="Item Antigo:").pack(pady=5)
-    entrada_item_antigo = tk.Entry(frame_conteudo)
-    entrada_item_antigo.pack(pady=5)
+def alterar_item(frame, itens):
+    for widget in frame.winfo_children():
+        widget.destroy()
 
-    tk.Label(frame_conteudo, text="Item Novo:").pack(pady=5)
-    entrada_item_novo = tk.Entry(frame_conteudo)
-    entrada_item_novo.pack(pady=5)
+    tk.Label(frame, text="Nome do Item para Alterar:").pack(pady=5)
+    nome_entry = tk.Entry(frame)
+    nome_entry.pack(pady=5)
 
-    def salvar_alteracao():
-        item_antigo = entrada_item_antigo.get()
-        item_novo = entrada_item_novo.get()
-        if item_antigo in itens:
-            index = itens.index(item_antigo)
-            itens[index] = item_novo
-            messagebox.showinfo("Sucesso", "Item alterado com sucesso!")
-        else:
-            messagebox.showerror("Erro", "Item não encontrado!")
+    tk.Label(frame, text="Nova Quantidade:").pack(pady=5)
+    quantidade_entry = tk.Entry(frame)
+    quantidade_entry.pack(pady=5)
 
-    tk.Button(frame_conteudo, text="Alterar", command=salvar_alteracao).pack(pady=5)
+    def alterar():
+        nome = nome_entry.get()
+        nova_quantidade = int(quantidade_entry.get())
+        for item in itens:
+            if item['nome'] == nome:
+                item['quantidade'] = nova_quantidade
+                messagebox.showinfo("Sucesso", "Item alterado com sucesso!")
+                return
+        messagebox.showerror("Erro", "Item não encontrado.")
+
+    tk.Button(frame, text="Alterar", command=alterar).pack(pady=10)

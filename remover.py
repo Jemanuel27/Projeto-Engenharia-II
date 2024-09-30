@@ -1,17 +1,21 @@
 import tkinter as tk
 from tkinter import messagebox
 
-def remover_item(frame_conteudo, itens):
-    tk.Label(frame_conteudo, text="Remover Item:").pack(pady=5)
-    entrada_item_remover = tk.Entry(frame_conteudo)
-    entrada_item_remover.pack(pady=5)
+def remover_item(frame, itens):
+    for widget in frame.winfo_children():
+        widget.destroy()
 
-    def salvar_remocao():
-        item = entrada_item_remover.get()
-        if item in itens:
-            itens.remove(item)
-            messagebox.showinfo("Sucesso", "Item removido com sucesso!")
-        else:
-            messagebox.showerror("Erro", "Item não encontrado!")
+    tk.Label(frame, text="Nome do Item para Remover:").pack(pady=5)
+    nome_entry = tk.Entry(frame)
+    nome_entry.pack(pady=5)
 
-    tk.Button(frame_conteudo, text="Remover", command=salvar_remocao).pack(pady=5)
+    def remover():
+        nome = nome_entry.get()
+        for item in itens:
+            if item['nome'] == nome:
+                itens.remove(item)
+                messagebox.showinfo("Sucesso", "Item removido com sucesso!")
+                return
+        messagebox.showerror("Erro", "Item não encontrado.")
+
+    tk.Button(frame, text="Remover", command=remover).pack(pady=10)
