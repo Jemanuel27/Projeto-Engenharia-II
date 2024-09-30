@@ -49,11 +49,10 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
 
 <ul>
 
-<h3></h3>
 
 <ol type="1">
   <li>Clone o repositorio do Github na sua maquina<li>
-  <li>Segue o link</li>
+  <li> link</li>
 </ol>
 
 
@@ -65,9 +64,6 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
 ```
 ```
 
-<ol start="4" type="1">
-  <li></li>
-</ol>
 
 ```
 ```
