@@ -49,8 +49,8 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
 
 <ul>
 
-<h3>:computer: Clonagem</h3>
-<p>Como clonar o projeto:</p>
+<h3></h3>
+<p></p>
 
 <ol type="1">
   <li></li>
@@ -77,7 +77,12 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
 
 <h2 id="usage">💻 Como Usar</h2>
 
-<p></p>
+<p>1º Abrir a pasta no VS Code</p>
+<p>2º Execute o CMD<p>
+<p>3º copie o caminho do arquivo main.py que esta aberto no vs code<p>
+<p>4º exclua a parte main.py do caminho que copiou e digite: python.exe main.py<p>
+<p>5º Pressione enter e o sistema será executando<p>
+
 
 ```json
 {
@@ -88,7 +93,7 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
 <h2 id="difficulties">❗ Dificuldades Conhecidas </h2>
 <ul>
   <li>POUCA DOCUMENTAÇÃO SOBRE A FERRAMENTA tkinter.</li>
-  
+  <li><li>
 </ul>
 
 <h2 id="contributors">🤝 Colaboradores</h2>
