@@ -49,7 +49,7 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
 
 <ul>
 
-<h3></h3>
+<h3>Clone o repositorio do Github na sua maquina</h3>
 <p></p>
 
 <ol type="1">
@@ -79,8 +79,8 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
 
 <p>1º Abrir a pasta no VS Code</p>
 <p>2º Execute o CMD<p>
-<p>3º copie o caminho do arquivo main.py que esta aberto no vs code<p>
-<p>4º exclua a parte main.py do caminho que copiou e digite: python.exe main.py<p>
+<p>3º Copie o caminho do arquivo main.py que esta aberto no vs code<p>
+<p>4º Exclua a parte main.py do caminho que copiou e digite: python.exe main.py<p>
 <p>5º Pressione enter e o sistema será executando<p>
 
 
