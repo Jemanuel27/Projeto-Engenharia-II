@@ -53,16 +53,16 @@ Este projeto tem como objetivo inserir produtos, remove, alterar, listagem de pr
 <ol type="1">
   <li>Clone o repositorio do Github na sua maquina<li>
 
-https://github.com/Jemanuel27/Projeto-Engenharia-II.git
 </ol>
 
 
 
 <ol start="3" type="1">
-  <li>https://github.com/Jemanuel27/Projeto-Engenharia-II.git</li>
+  <li></li>
 </ol>
 
-```
+```bash 
+git clone https://github.com/Jemanuel27/Projeto-Engenharia-II.git
 ```
 
 
